@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- These meta tags always have to come first -->
+
+    <title>What's Cooking?</title>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script>
+
+    <!-- Latest compiled CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- CSS Style Sheet File for Entire Web Page -->
+    <link href="../../css/style.css" rel="stylesheet">
+
+    <!-- Latest compiled JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+
+  <style>
+  .table-responsive{
+    background: #5186ef;
+  }
+
+  .GroceryList_navigation_container{
+    background: #0000000;
+  }
+  </style>
+
+  </head>
+  
+
+<body>
+
+  <!-- NAV BAR -->
+
+<nav class="navbar navbar-default">
+<div class="container-fluid">
+    
+  <!-- grouped for better mobile display -->
+  <div class="navbar-header">
+  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+  <span class="sr-only">Toggle navigation</span>
+  <span class="icon-bar"></span>
+  <span class="icon-bar"></span>
+  <span class="icon-bar"></span>
+  </button>
+  <a class="navbar-brand" href="home.html">
+	What's Cooking?
+  </a>
+  </div>
+
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+  <ul class="nav navbar-nav">
+
+    <!-- button to take user home -->
+    <li class="btn btn-default"><a href="home.html" class="btn" data-toggle="btn" role="btn" aria-haspopup="true" aria-expanded="false">
+    <span class="glyphicon glyphicon-home"> Home <span class="btn"></span></span></a>
+      
+    </li>
+
+    <!-- button to take user to your recipe page -->
+    <li class="btn btn-default"><a href="saved_recipe.html" class="btn" data-toggle="btn" role="btn" aria-haspopup="true" aria-expanded="false">
+    <span class="glyphicon glyphicon-apple"> Your Recipes <span class="btn"></span></span></a>
+      
+    </li>
+
+    <!-- button to take user to grocery list page -->
+    <li class="btn btn-default"><a href="GroceryList.html" class="btn" data-toggle="btn" role="btn" aria-haspopup="true" aria-expanded="false">
+    <span class="glyphicon glyphicon-tasks"> Grocery List <span class="btn"></span></span></a>
+     
+    </li>
+ <!-- button to take user to loging page -->
+    <li class="link"><a href="login_page.html" class="" data-toggle="btn" role="btn" aria-haspopup="true" aria-expanded="false">
+    <span class="glyphicon glyphicon-log-out"> Login/Create Account <span class="btn"></span></span></a>
+     
+    </li>
+
+</div>
+</nav>
+
+
+<!-- Log in Button 
+  <form class="navbar-form navbar-right">
+  <div class="form-group "> 
+  <li class="btn btn-default"><a href="#" class="btn" data-toggle="btn" role="btn" aria-haspopup="true" aria-expanded="false">
+  <span class="glyphicon glyphicon-log-out"><a href="login_page.html"> Login/ Create Account</span></button>
+  
+  </div>
+  </form>
+
+</div>
+</nav> -->
+<br><br>
+<div class="container">
+  <h1 align = "center">Your Saved Recipes</h1>
+  </div>
+
+    <!-- Saved Recipe table -->
+    <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+      <th>Recipe</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>More Details</th>
+     
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>Greek Pizza</td>
+        <td>pizza this, pizza that</td>
+        <td>$12.76</td>
+        <td><button class= "link">Full Recipe<td>
+     
+
+      </tr>
+    </tbody>
+    </table>
+    </div>
+  </div>
+  </body>
