@@ -18,4 +18,7 @@ public class HomePage {
     @RequestMapping("/grocery")
     public String groceryList(){ return "GroceryList"; }
 
+    @RequestMapping("/createAccount")
+    public String createAccount(){ return "make_account"; }
+
 }
