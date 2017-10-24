@@ -1,0 +1,12 @@
+.btn
+{
+    text-position: center;
+}
+.btn-default:hover
+{
+    background-color: #368BC1;
+}
+.navbar
+{
+    width: 100%;
+}

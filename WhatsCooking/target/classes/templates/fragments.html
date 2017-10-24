@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+
+<th:block th:fragment="sidebar(active)">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="./css/fragments.css" type="text/css" />
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a href="search" class="navbar-brand">
+            What's Cooking?
+        </a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <link rel="stylesheet" href="./css/fragments.css" type="text/css" />
+
+        <ul class="nav navbar-nav">
+            <!-- button to take user home -->
+            <li class="btn btn-default">
+                <a href="search" aria-haspopup="true" aria-expanded="false">
+                    <span class="glyphicon glyphicon-home"/>  Home
+                </a>
+            </li>
+            <!-- button to take user to your saved recipe page -->
+            <li class="btn btn-default">
+                <a href="saved" aria-haspopup="true" aria-expanded="false">
+                    <span class="glyphicon glyphicon-apple"/>  Your Recipes
+                </a>
+            </li>
+            <!-- button to take user to grocery list page -->
+            <li class="btn btn-default">
+                <a href="grocery" aria-haspopup="true" aria-expanded="false">
+                    <span class="glyphicon glyphicon-tasks"/>  Grocery List
+                </a>
+            </li>
+            <!-- button to take user to loging page -->
+            <li class="btn btn-default">
+                <a href="." aria-haspopup="true" aria-expanded="false">
+                    <span class="glyphicon glyphicon-log-out"/>  Login/Create Account
+                </a>
+            </li>
+        </ul>
+    </div>
+</th:block>
+
+</body>
+</html>

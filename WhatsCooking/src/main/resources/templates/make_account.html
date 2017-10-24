@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- THese 3 meta tags HAVE to always be first in head, always broski -->
+    <title>What's Cooking Create Account</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script>
+    <!-- Latest compiled csss -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"/>
+    <!-- Latest compiled Javascript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </head>
+    <!--! NAV BAR ! -->
+
+<nav class="navbar navbar-default">
+<div class="container-fluid">
+    <th:block th:replace="fragments :: sidebar('.')"/>
+</div>
+</nav>
+
+<!-- Log in Button 
+  <form class="navbar-form navbar-right">
+  <div class="form-group "> 
+  <span class="glyphicon glyphicon-log-out"><a href="login_page.html"> Login/ Create Account</span></button>
+  </div>
+
+  </form>
+
+</div>
+</nav>
+</div>-->
+
+      
+      
+      <div class="container">
+      <div class="col-sm-offset-4 col-sm-4">
+	   <h1>Create Account</h1>
+      <form class="form-horizontal"  data-toggle="validator" method="POST">
+      
+
+      <input type="text" class="form-control" id="full_name" name="full_name" placeholder="Full Name" required="autofocus"/>
+      <br/>
+
+      <input type="email" class="form-control" id="email" name="email" placeholder="Email"/>
+      <br/>
+
+      <input type="password" class="form-control" id="password" name="password" placeholder="Password"/>
+      <br/>
+
+      <input type="password" class="form-control" id="re-enter_password" name="re-enter_password" placeholder="Re-Enter Password"/>
+      <br/>
+
+      <div class="col-sm-offset-3 col-sm-10">
+      <button class="reg-btn btn-md btn-primary" type="submit">Create </button>
+      </div>
+      <br/>
+      <br/>
+
+      </form>
+      </div>  
+      </div>
+</html>
