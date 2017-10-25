@@ -10,7 +10,7 @@ public class HomePage {
     public String loginPage(){ return "login_page"; }
 
     @RequestMapping("/search")
-    public String searchPage(){ return "home"; }
+    public String searchPage(){ return "search"; }
 
     @RequestMapping("/saved")
     public String savedRecipes(){ return "saved_recipe"; }

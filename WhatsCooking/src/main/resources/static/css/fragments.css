@@ -2,7 +2,8 @@
 {
     text-position: center;
 }
-.btn-default:hover
+.btn-default:hover,
+.btn-default.active
 {
     background-color: #368BC1;
 }
