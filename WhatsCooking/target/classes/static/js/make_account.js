@@ -1,3 +1,23 @@
+
+function password_match(){
+    var password = document.getElementById("password");
+    var confirm_password = document.getElementById("re-enter_password");
+
+    if(password.value != confirm_password.value) {
+        confirm_password.setCustomValidity("Passwords Don't Match");
+    } else {
+        confirm_password.setCustomValidity('');
+        var username = document.getElementById("user_name");
+        var email = document.getElementById("email");
+        submit(username.value, email.value, Crypto.SHA256(password.value));
+    }
+}
+
+function submit(username, email, password){
+
+    console.log(username, email, password);
+}
+
 /* var express = require('express');
 var router = express.Router();
 
