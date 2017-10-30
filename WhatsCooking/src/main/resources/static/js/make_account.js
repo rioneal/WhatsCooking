@@ -9,95 +9,26 @@ function password_match(){
         confirm_password.setCustomValidity('');
         var username = document.getElementById("user_name");
         var email = document.getElementById("email");
-        submit(username.value, email.value, Crypto.SHA256(password.value));
+        submit(username.value, email.value, Crypto.SHA256(password.value)); //passes values to submit user to DB
     }
 }
 
 function submit(username, email, password){
+	$.ajax({
+		url: 'http://localhost:8080/db/add?UName=' + username, // The URL to add a user
+		type: 'GET', // The HTTP Method, can be GET POST PUT DELETE etc
+		data: {
+		    "email":email, //adds email
+		    "pw":password //adds hashed password
+		    "verified": 0
 
-    console.log(username, email, password);
-}
-
-/* var express = require('express');
-var router = express.Router();
-
-// for hashing/verifying hashed passwords
-var hash = require('password-hash');
-
-// for reading HTML body data
-var bodyParser = require('body-parser');
-var multer = require('multer'); 
-var multiform = multer();
-
-var mongoose = require('mongoose');
-
-var accountSchema = mongoose.Schema({
-	_id: String,
-    lab: String, 
-    password: String, 
-    email: String,
-    classification: String,
-    phone: String,
-    r: String,
-    labsafety: String,
-    hazzardcommunication: String,
-    safetyawareness: String,
-    teacher: String, 
-    budget: Number
-});
-
-var account = mongoose.model('registration', accountSchema, 'accounts'); // 'name', Schema, 'collection' -> format used in order to have access to a collection while avoiding same-schema issues
-
-router.use(bodyParser.json());
-router.use(bodyParser.urlencoded({extended: true}));
-router.use(multiform.array());
-
-
-router.get('', function(req, res){ // no url since navigation.js takes care of /registration
-	res.sendFile(__dirname + '/registration_page.html');
-});
-
-router.post('', function(req,res){
-	
-	
-	var userInfo = req.body;
-	
-	var hashedpassword = hash.generate(userInfo.password, [saltLength = 20]);
-	
-	// Setting up new entry for new user using the 'account' Schema created above
-	var newAccount = new account({
-		_id: userInfo.full_name,
-		email: userInfo.email,
-		r: userInfo.r_number, 
-		password: hashedpassword,
-		lab: null,
-		labsafety: null,
-		hazzardcommunication: null,
-		safetyawareness: null,
-		teacher: null, 
-		budget: null,
-		phone: null,
-		classification: null
-	});
-	//handle if the re-enter password is wrong
-	
-	console.log(userInfo.password); 
-	console.log(userInfo.full_name);
-	
-	
-	newAccount.save(function(err){
-		
-		if(err){
+		}, // Additional parameters here
+		dataType: 'json',
+		success: function (data) {
+			console.log(data);
+		},
+		error: function (err) {
 			console.log(err);
-			return res.send("Error"); // must use return to respond to the .post
-		}
-		else{
-			console.log("Account entry successful");
-			return res.redirect('/'); //redirect to login page
-		}
+		},
 	});
-	
-}); 
-
-
-module.exports = router;*/
+}
