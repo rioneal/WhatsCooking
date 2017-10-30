@@ -10,17 +10,17 @@ public class User {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
 
-    private Integer id;
+    private Integer Id;
     private String UName;
-    private String email;
-    private String password;
-    private Integer verified;
+    private String Email;
+    private String Password;
+    private Integer Verified;
 
     public Integer getId(){
-        return id;
+        return Id;
     }
     public void setId(Integer id){
-        this.id=id;
+        this.Id=id;
     }
 
     public String getUName(){
@@ -31,24 +31,24 @@ public class User {
     }
 
     public String getEmail(){
-        return email;
+        return Email;
     }
     public void setEmail(String email){
-        this.email = email;
+        this.Email = email;
     }
 
     public String getPassword(){
-        return password;
+        return Password;
     }
     public void setPassword(String password){
-        this.password = password;
+        this.Password = password;
     }
 
     public Integer getVerified(){
-        return verified;
+        return Verified;
     }
     public void setVerified(Integer verified){
-        this.verified = verified;
+        this.Verified = verified;
     }
 
 

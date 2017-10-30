@@ -18,11 +18,15 @@ public class MainController {
 
     @GetMapping(path="/add")
     public @ResponseBody String addNewUser(@RequestParam String UName,
-                                           @RequestParam String email){
+                                           @RequestParam String email,
+                                           @RequestParam String pw,
+                                           @RequestParam Integer verified){
 
         User u = new User();
         u.setUName(UName);
         u.setEmail(email);
+        u.setPassword(pw);
+        u.setVerified(verified);
         userRepository.save(u);
         return "Saved";
     }
