@@ -10,17 +10,17 @@ public class User {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
 
-    private Integer Id;
+    private Integer UId;
     private String UName;
     private String Email;
     private String Password;
     private Integer Verified;
 
-    public Integer getId(){
-        return Id;
+    public Integer getUId(){
+        return UId;
     }
-    public void setId(Integer id){
-        this.Id=id;
+    public void setUId(Integer id){
+        this.UId=id;
     }
 
     public String getUName(){
@@ -47,9 +47,7 @@ public class User {
     public Integer getVerified(){
         return Verified;
     }
-    public void setVerified(Integer verified){
-        this.Verified = verified;
-    }
+    public void setVerified(Integer verified){ this.Verified = verified; }
 
 
 }
