@@ -16,6 +16,7 @@
     <!-- Latest compiled JS -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="./js/login_page.js"></script>
+    <script type="text/javascript" src="http://cryptojs.altervista.org/api/functions_cryptography.js"></script>
   </head>
   
   
@@ -40,7 +41,6 @@
 </nav>
 </div>-->
 
-  	 
 	   <div class="container">
       <div class="col-sm-offset-4 col-sm-4">
       <h2>Please Login</h2>
@@ -48,7 +48,7 @@
       <form class="form-signin" data-toggle="validator" method="POST">
       
       <br/>
-      <input type="email" id="inputEmail" name="inputEmail" class="form-control" placeholder="Email" required="autofocus"/>
+      <input type="username" id="username" class="form-control" placeholder="Username" required="autofocus"/>
       
       <br/>
       <input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="Password" required="autofocus"/>
@@ -59,7 +59,7 @@
       </label>
       </div>
 
-      <button class="btn btn-lg btn-primary" type="submit">Login</button>
+      <button class="btn btn-lg btn-primary" type="submit" onclick="verifyUser()">Login</button>
       </form>
       
       <br/>

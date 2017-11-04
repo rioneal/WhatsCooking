@@ -1,14 +1,4 @@
 <!DOCTYPE html>
-<?php
-	$hostname = "localhost:8080/createAccount";//host name
-	$dbname = "WhatsCookingDB";//database name
-	$username = "GoodBytes";//username you use to login to php my admin
-	$password = "goodbytes1234";//password you use to login
-
-	//CONNECTION OBJECT
-	//This Keeps the Connection to the Database
-	$conn = new MySQLi($hostname, $username, $password, $dbname) or die('Can not connect to database')
-?>
 <html xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="utf-8"/>
@@ -25,9 +15,10 @@
     <!-- Latest compiled Javascript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script type="text/javascript" src="./js/make_account.js"></script>
+
+      <script type="text/javascript" src="http://cryptojs.altervista.org/api/functions_cryptography.js"></script>
   </head>
     <!--! NAV BAR ! -->
-
 <nav class="navbar navbar-default">
 <div class="container-fluid">
     <th:block th:replace="fragments :: sidebar('.')"/>
@@ -46,26 +37,10 @@
 </nav>
 </div>-->
 
-
-  <?php
-	if(isset($_POST['submit'])){
-
-
-	$username = $_POST['user_name'];
-
-	$email = $_POST['email'];
-
-	$passw = $_POST['password'];
-
-
-	$insert = "INSERT INTO `WhatsCookingDB`.`User` (`UName`, `Email`, `Password`) VALUES ( '$username', '$email', '$passw' )";
-	$conn->mysql_query($insert) or die("Cannot update");
-  }
-  ?>
-
       <div class="container">
       <div class="col-sm-offset-4 col-sm-4">
 	   <h1>Create Account</h1>
+
       <form class="form-horizontal"  data-toggle="validator" method="POST">
 
       <input type="text" class="form-control" name="user_name" id="user_name" placeholder="User Name" required="autofocus"/>
@@ -77,7 +52,7 @@
       <input type="password" class="form-control" id="re-enter_password" placeholder="Re-Enter Password"/>
       <br/>
       <div class="col-sm-offset-3 col-sm-10">
-      <button class="reg-btn btn-md btn-primary" type="submit">Create </button>
+      <button class="reg-btn btn-md btn-primary" type="submit" onclick="password_match()">Create </button>
       </div>
       <br/>
       <br/>

@@ -1,45 +1,22 @@
-var express = require('express'); 
-var router = express.Router();
+function verifyUser(){
 
+    var username = document.getElementById("username");
+    var password = document.getElementById("inputPassword");
 
-var mongoose = require('mongoose');
-
-var hash = require('password-hash');
-
-var bodyParser = require('body-parser');
-var multer = require('multer'); 
-var multiform = multer();
-
-var loginSchema = mongoose.Schema({
-	_id: String,
-	email: String, 
-    password: String
-});
-
-var loginModel = mongoose.model('login', loginSchema, 'accounts');
-
-
-router.use(bodyParser.json());
-router.use(bodyParser.urlencoded({extended: true}));
-router.use(multiform.array());
-
-router.get('', function(req, res){
-	res.sendFile(__dirname + '/login.html');
-});
-
-router.post('', function(req, res){
-	var userLogin = req.body; 
-	console.log(userLogin.inputEmail); 
-	console.log(userLogin.inputPassword);
-	
-	loginModel.findOne({'email' : userLogin.inputEmail}, function(err, loginInfo){
-		if(hash.verify(userLogin.inputPassword, loginInfo.password)){
-			return res.redirect("/home/account_page");
-		}
-		else{return res.send("wrong password/error");}
+	$.ajax({
+		url: 'http://localhost:8080/db/verifyUser?UName=' + username.value,
+		type: 'GET', // The HTTP Method, can be GET POST PUT DELETE etc
+		data:{
+            "pw": Crypto.SHA256(password.value)
+		},
+		dataType: "text",
+		async: false,
+		success: function (data) {
+		    if(data == "True") alert("Welcome " + username.value + "!");
+            else password.setCustomValidity("Password or Username is Incorrect");
+		},
+		error: function (err) {
+			console.log(err);
+		},
 	});
-	
-});
-
-
-module.exports = router; 
+}
