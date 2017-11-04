@@ -1,14 +1,4 @@
 <!DOCTYPE html>
-<?php
-	$hostname = "localhost:8080/createAccount";//host name
-	$dbname = "WhatsCookingDB";//database name
-	$username = "GoodBytes";//username you use to login to php my admin
-	$password = "goodbytes1234";//password you use to login
-
-	//CONNECTION OBJECT
-	//This Keeps the Connection to the Database
-	$conn = new MySQLi($hostname, $username, $password, $dbname) or die('Can not connect to database')
-?>
 <html xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="utf-8"/>
@@ -46,23 +36,6 @@
 </div>
 </nav>
 </div>-->
-
-
-  <?php
-	if(isset($_POST['submit'])){
-
-
-	$username = $_POST['user_name'];
-
-	$email = $_POST['email'];
-
-	$passw = $_POST['password'];
-
-
-	$insert = "INSERT INTO `WhatsCookingDB`.`User` (`UName`, `Email`, `Password`) VALUES ( '$username', '$email', '$passw' )";
-	$conn->mysql_query($insert) or die("Cannot update");
-  }
-  ?>
 
       <div class="container">
       <div class="col-sm-offset-4 col-sm-4">

@@ -8,15 +8,18 @@ import com.WhatsCooking.controller.Recipe;
 import com.WhatsCooking.controller.RecipeRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.UUID;
 
-import static java.util.UUID.randomUUID;
+import javax.sql.DataSource;
+import java.io.Console;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.SQLFeatureNotSupportedException;
+import java.util.logging.Logger;
 
 @Controller
 @RequestMapping(path="/db")
@@ -24,8 +27,12 @@ public class DBController {
 
     @Autowired
     private UserRepository userRepository;
+    @Autowired
     private RecipeRepository recipeRepository;
+    @Autowired
     private PreferencesRepository preferencesRepository;
+    @Autowired
+    JdbcTemplate jdbcTemplate;
 
     @GetMapping(path="/addUser")
     public @ResponseBody String addNewUser(@RequestParam String UName,
@@ -38,9 +45,20 @@ public class DBController {
         u.setEmail(email);
         u.setPassword(pw);
         u.setVerified(verified);
-       // u.setUId(UUID.randomUUID().toString());
         userRepository.save(u);
         return "Saved";
+    }
+
+    @GetMapping(path="/verifyUser")
+    public @ResponseBody String verifyUser(@RequestParam String UName,
+                                           @RequestParam String pw){
+
+        String sql = "SELECT password FROM user WHERE UName=?";
+        String pw2 = jdbcTemplate.queryForObject(
+                sql, new Object[] { UName }, String.class);
+
+        if(pw.equals(pw2)) return "True";
+        else return "False";
     }
 
     @GetMapping(path="/allUsers")
