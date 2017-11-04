@@ -14,6 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.UUID;
+
+import static java.util.UUID.randomUUID;
+
 @Controller
 @RequestMapping(path="/db")
 public class DBController {
@@ -34,6 +38,7 @@ public class DBController {
         u.setEmail(email);
         u.setPassword(pw);
         u.setVerified(verified);
+       // u.setUId(UUID.randomUUID().toString());
         userRepository.save(u);
         return "Saved";
     }

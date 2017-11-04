@@ -15,7 +15,7 @@ function password_match(){
 
 function submit(username, email, password){
 	$.ajax({
-		url: 'http://localhost:8080/db/add?UName=' + username, // The URL to add a user
+		url: 'http://localhost:8080/db/addUser?UName=' + username, // The URL to add a user
 		type: 'GET', // The HTTP Method, can be GET POST PUT DELETE etc
 		data: {
 		    "email":email, //adds email
