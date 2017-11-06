@@ -1,13 +1,33 @@
+// Data parameters declared and initialized to default values
+// Will be changed at time of search if user has changed any preferences
+// Will also change if user is guest or registered user
+var dataParameters = {
+	"limitLicense": "false",
+	"addRecipeInformation": "true",
+	"cuisine": "",
+	"diet": "",
+	"excludeIngredients": "",
+	"fillIngredients": "true",
+	"includeIngredients": "beef,carrots,potatoes",
+	"instructionsRequired": "true",
+	"intolerances": "",
+	"maxCalories": "-1"
+};
 
-function search(searchString) {
+
+function userSearch() {
+
+}
+
+function guestSearch() {
+
+}
+
+function complexSearch(searchData) {
 	$.ajax({
-		url: 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients', // The URL to the API. You can get this in the API page of the API you intend to consume
+		url: 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex', // The URL to the API. You can get this in the API page of the API you intend to consume
 		type: 'GET', // The HTTP Method, can be GET POST PUT DELETE etc
-		data: {
-			"ingredients": searchString,
-			"fillIngredients": true,
-			"number": 1
-		}, // Additional parameters here
+		data: searchData, // Additional parameters here
 		dataType: 'json',
 		success: function (data) {
 			console.log(data);
