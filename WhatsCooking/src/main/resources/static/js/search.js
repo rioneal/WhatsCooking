@@ -40,3 +40,47 @@ function complexSearch(searchData) {
 		}
 	});
 }
+
+function retreivePreferences(uid) {
+	$.ajax({
+		url: 'http://localhost:8080/db/getUserPreferences', // The URL to add a user
+		type: 'GET', // The HTTP Method, can be GET POST PUT DELETE etc
+		data: {
+			"UId": uid
+		}, // Additional parameters here
+		dataType: 'json',
+		success:
+			function (data) {
+				parsePreferences(data);
+			},
+		error: function (err) {
+			console.log(err);
+		}
+	});
+}
+
+function parsePreferences(data) {
+	// CONSIDER CHANGING DB COLUMNS TO INTOLERANCES AND DIET
+	var dataParameters = {
+		"limitLicense": "false",
+		"addRecipeInformation": "true",
+		"cuisine": "",
+		"diet": "",
+		"excludeIngredients": "",
+		"fillIngredients": "true",
+		"includeIngredients": "beef,carrots,potatoes",
+		"instructionsRequired": "true",
+		"intolerances": "",
+		"maxCalories": "-1"
+	};
+	for (key in data) {
+		switch(key){
+			case "dairyFree":
+				key="dairy";
+				break;
+			case "glutenFree":
+				key="gluten";
+				break;
+		}
+	}
+}

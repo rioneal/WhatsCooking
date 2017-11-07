@@ -61,6 +61,17 @@ public class DBController {
         else return "False";
     }
 
+    @GetMapping(path="/getUserPreferences")
+    public @ResponseBody Preferences getUserPreferences(@RequestParam int UId){
+
+        String sql = "SELECT * FROM preferences WHERE UId = ?";
+
+        Preferences pref = (Preferences)jdbcTemplate.queryForObject(
+                sql, new Object[] { UId }, new PreferencesRowMapper());
+
+        return pref;
+    }
+
     @GetMapping(path="/allUsers")
     public @ResponseBody Iterable<User> getAllUsers(){ return userRepository.findAll(); }
 
