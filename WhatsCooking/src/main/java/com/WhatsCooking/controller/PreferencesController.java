@@ -43,15 +43,13 @@ public class PreferencesController {
     }
 
     @GetMapping(path="/getPreferences")
-    public @ResponseBody String findPreferences(@RequestParam Integer Uid){
-
-        if(Uid == 0) return "User not found";
+    public @ResponseBody Preferences findPreferences(@RequestParam Integer Uid){
 
         try{
             Preferences preferences = preferencesRepository.findByUid(Uid);
-            return preferences.toString();
+            return preferences;
         }catch (Exception ex){
-            return "User not found";
+            return null;
         }
 
     }

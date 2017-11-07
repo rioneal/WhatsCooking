@@ -13,8 +13,8 @@ public class Preferences {
     private Integer uid;
     private Integer vegan;
     private Integer vegetarian;
-    private Integer glutenfree;
-    private Integer dairyfree;
+    private Integer gluten_free;
+    private Integer dairy_free;
     private String other;
 
     public Integer getUid() { return uid; }
@@ -26,16 +26,16 @@ public class Preferences {
     public Integer getVegetarian() { return vegetarian; }
     public void setVegetarian(Integer veg){this.vegetarian = veg;}
 
-    public Integer getGlutenfree() { return glutenfree; }
-    public void setGlutenfree(Integer gf){ this.glutenfree = gf;}
+    public Integer getGlutenfree() { return gluten_free; }
+    public void setGlutenfree(Integer gf){ this.gluten_free = gf;}
 
-    public Integer getDairyfree() { return dairyfree; }
-    public void setDairyfree(Integer df){ this.dairyfree = df; }
+    public Integer getDairyfree() { return dairy_free; }
+    public void setDairyfree(Integer df){ this.dairy_free = df; }
 
     public String getOther(){ return other;}
     public void setOther(String other){this.other = other;}
 
     public String toString(){
-        return vegan + ", " + vegetarian + ", " + glutenfree + ", " + dairyfree + ", " + other;
+        return vegan + ", " + vegetarian + ", " + gluten_free + ", " + dairy_free + ", " + other;
     }
 }
