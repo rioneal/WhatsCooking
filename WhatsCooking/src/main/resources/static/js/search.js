@@ -3,17 +3,30 @@
 // Will also change if user is guest or registered user
 sessionStorage.setItem('uid', 1);
 
+function search(ingredientString) {
+	userSearch(ingredientString)
+	// if (sessionStorage.getItem('loggedIn') == 1) {
+	// 	userSearch();
+	// }
+	// else {
+	// 	guestSearch();
+	// }
+}
 
-function userSearch() {
+function userSearch(ingredientString) {
+	console.log(ingredientString);
+	retreivePreferences(ingredientString);
+	// console.log(parameters);
+	// parameters.includeIngredients = ingredientString;
+	// complexSearch(parameters);
+}
+
+function guestSearch(ingredientString) {
 
 }
 
-function guestSearch() {
 
-}
-
-
-function retreivePreferences() {
+function retreivePreferences(ingredientString) {
 	uid = sessionStorage.getItem('uid');
 	$.ajax({
 		url: 'http://localhost:8080/getPreferences', // The URL to add a user
@@ -26,7 +39,7 @@ function retreivePreferences() {
 		success:
 			function (data) {
 				console.log(data);
-				// parsePreferences(data);
+				parsePreferences(ingredientString, data);
 			},
 		error: function (err) {
 			console.log(err);
@@ -34,8 +47,7 @@ function retreivePreferences() {
 	});
 }
 
-function parsePreferences(data) {
-	// CONSIDER CHANGING DB COLUMNS TO INTOLERANCES AND DIET
+function parsePreferences(ingredientString, data) {
 	var dataParameters = {
 		"limitLicense": "false",
 		"addRecipeInformation": "true",
@@ -48,16 +60,42 @@ function parsePreferences(data) {
 		"intolerances": "",
 		"maxCalories": "-1"
 	};
-	for (key in data) {
-		switch (key) {
-			case "dairyFree":
-				key = "dairy";
-				break;
-			case "glutenFree":
-				key = "gluten";
-				break;
+
+	var intolerances = [];
+	var diet = [];
+	if (data) {
+		for (var key in data) {
+			if (data[key] == true) {
+				switch (key) {
+					case "dairyfree":
+						key = "dairy";
+						intolerances.push(key);
+						break;
+					case "glutenfree":
+						key = "gluten";
+						intolerances.push(key);
+						break;
+					case "vegan":
+						diet.push(key);
+						break;
+					case "vegetarian":
+						diet.push(key);
+						break;
+					case "other":
+						intolerances.push(key);
+						break;
+					default:
+						break;
+				}
+			}
 		}
+		var intolString = intolerances.join();
+		var dietString = diet.join();
+		dataParameters.intolerances = intolString;
+		dataParameters.diet = dietString;
 	}
+	dataParameters.includeIngredients = ingredientString;
+	complexSearch(dataParameters);
 }
 
 function complexSearch(searchData) {
@@ -67,7 +105,9 @@ function complexSearch(searchData) {
 		data: searchData, // Additional parameters here
 		dataType: 'json',
 		success: function (data) {
-			console.log(data);
+			console.log(data.results);
+			console.log(JSON.stringify(data.results))
+			mapper(data.results);
 		},
 		error: function (err) {
 			alert(err);
