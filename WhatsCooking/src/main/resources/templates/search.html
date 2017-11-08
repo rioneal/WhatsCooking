@@ -17,6 +17,8 @@
     <!-- Latest compiled js -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="./js/search.js"></script>
+      <script src="./js/recipeSerializer.js"></script>
+      <script src="./js/dynamicForm.js"></script>
   </head>
 <body>
 
@@ -33,7 +35,7 @@
   <h1 align = "center">Enter Your Ingredients</h1>
   </div>
 
- <div class="col-sm-offset-4 col-sm-4">
+ <!--<div class="col-sm-offset-4 col-sm-4">
  <form class="form-signin" method="post">
       
       <br/>
@@ -42,6 +44,30 @@
       <button id="AddIngredient" class="btn btn-lg btn-primary" type="button">Add Additional Ingredient</button>
       <button id="FindRecipes" class="btn btn-lg btn-success" type="button" onclick="search(ingredient.value)">Find Recipes!</button>
       </form>
-  </div>
+  </div>-->
+<div class="container">
+    <div class="row col-sm-3">
+        <div class="control-group" id="fields">
+            <h3 class="control-label" for="field1">Ingredient List</h3>
+            <div class="controls">
+                <form role="form" autocomplete="off" action="#">
+                    <!--TO ADD OTHER INPUTS, PUT THEM BETWEEN THESE LINES-->
+
+                    <div class="entry input-group col-xs-12">
+                        <input class="form-control ingredient" name="ingredient" type="text" placeholder="Add Ingredient"/>
+                        <span class="input-group-btn">
+                            <button class="btn btn-success btn-add" type="button">
+                                <span class="glyphicon glyphicon-plus"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+                <br/>
+                <input type="button" class="btn btn-md btn-block btn-primary recipeSubmit" id="searchRec"
+                       value="Search Recipes"/>
+            </div>
+        </div>
+    </div>
+</div>
   </body>
 </html>
