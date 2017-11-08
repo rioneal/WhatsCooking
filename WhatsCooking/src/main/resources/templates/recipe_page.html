@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- These meta tags always have to come first -->
+
+    <title>What's Cooking?</title>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <!-- Latest compiled CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+    <!-- Theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"/>
+    <!-- CSS Style Sheet File for Entire Web Page -->
+    <link href="./css/style.css" rel="stylesheet"/>
+    <!-- Latest compiled JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./js/recipe_page.js"></script>
+  <style>
+      h5 {
+          word-spacing: -9px;
+      }
+
+  </style>
+
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+
+        <!-- grouped for better mobile display -->
+        <th:block th:replace="fragments :: sidebar('.')"/>
+
+        <!-- Log in Button
+          <form class="navbar-form navbar-right">
+          <div class="form-group ">
+          <span class="glyphicon glyphicon-log-out"><a href="login_page.html"> Login/ Create Account</span></button>
+          </div>
+
+          </form>
+
+        </div>
+        </nav>
+        </div>-->
+
+    </div>
+</nav>
+<div class="post-container">
+
+    <div class="col-sm-offset-1 col-sm-0">
+    <h3 class="post-title">RECIPE NAME</h3>
+
+    <div class="post-thumb"><img SRC="vegetables-italian-pizza-restaurant.jpg" align="left" HEIGHT="450" WIDTH="420" BORDER="0" ><!--src="URL FOR API IMAGE" />--></div>
+
+    <div class="post-content" >
+        <div class="col-sm-offset-1 col-sm-0">
+            <p align="center">
+
+        <br/><br/>
+         <br/> RECIPE DESCRIPTION RECIPE DESCRIPTION RECIPE DESCRIPTION RECIPE DESCRIPTION RECIPE DESCRIPTION RECIPE DESCRIPTION RECIPE DESCRIPTION RECIPE DESCRIPTION RECIPE DESCRIPTION RECIPE DESCRIPTION
+        <br/><br/>
+          <br/>INGREDIENTS GO HERE  INGREDIENTS GO HERE  INGREDIENTS GO HERE  INGREDIENTS GO HERE  INGREDIENTS GO HERE  INGREDIENTS GO HERE  INGREDIENTS GO HERE
+        <br/><br/>
+            </p>
+            <button class="btn btn-md btn-primary col-sm-offset-2 col-sm-0"/> <span class="glyphicon glyphicon-heart"> <h5> Save Recipe</h5></span>
+        <button class="btn btn-md btn-primary col-sm-offset-1 col-sm-0"/> <span class="glyphicon glyphicon-shopping-cart"><h5>Add Ingredients to Grocery List</h5> </span>
+
+
+
+
+</div>
+</div>
+
+    </div>
+</div>
+<!--<div class="main-content">
+    <p>
+        <img src="pizza.jpg" HEIGHT="420" WIDTH="350" BORDER="0">
+        RECIPE DESCRIPTION RECIPE DESCRIPTION RECIPE DESCRIPTION RECIPE DESCRIPTION RECIPE DESCRIPTION
+    </p>-->
+
+</body>
+</html>
