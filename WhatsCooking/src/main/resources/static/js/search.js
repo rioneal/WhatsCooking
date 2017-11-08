@@ -1,6 +1,7 @@
 // Data parameters declared and initialized to default values
 // Will be changed at time of search if user has changed any preferences
 // Will also change if user is guest or registered user
+sessionStorage.setItem('loggedIn', false);
 sessionStorage.setItem('uid', 1);
 
 function search(ingredientString) {
@@ -14,8 +15,12 @@ function search(ingredientString) {
 }
 
 function userSearch(ingredientString) {
-	console.log(ingredientString);
-	retreivePreferences(ingredientString);
+	if(sessionStorage.getItem('loggedIn')==true){
+		retreivePreferences(ingredientString);
+	}
+	else{
+		parsePreferences(ingredientString,null)
+	}
 	// console.log(parameters);
 	// parameters.includeIngredients = ingredientString;
 	// complexSearch(parameters);
@@ -38,11 +43,11 @@ function retreivePreferences(ingredientString) {
 		// async: false,
 		success:
 			function (data) {
-				console.log(data);
+				// console.log(data);
 				parsePreferences(ingredientString, data);
 			},
 		error: function (err) {
-			console.log(err);
+			alert(err);
 		}
 	});
 }
@@ -51,14 +56,14 @@ function parsePreferences(ingredientString, data) {
 	var dataParameters = {
 		"limitLicense": "false",
 		"addRecipeInformation": "true",
-		"cuisine": "",
+		// "cuisine": "",
 		"diet": "",
-		"excludeIngredients": "",
+		// "excludeIngredients": "",
 		"fillIngredients": "true",
-		"includeIngredients": "beef,carrots,potatoes",
+		"includeIngredients": "",
 		"instructionsRequired": "true",
 		"intolerances": "",
-		"maxCalories": "-1"
+		"maxCalories": "5000"
 	};
 
 	var intolerances = [];
@@ -105,8 +110,8 @@ function complexSearch(searchData) {
 		data: searchData, // Additional parameters here
 		dataType: 'json',
 		success: function (data) {
-			console.log(data.results);
-			console.log(JSON.stringify(data.results))
+			// console.log(data.results);
+			// console.log(JSON.stringify(data.results));
 			mapper(data.results);
 		},
 		error: function (err) {

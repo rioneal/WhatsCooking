@@ -1,5 +1,7 @@
 $(document).ready(function () {
 	$(".recipeSubmit").click(function () {
+		$('.dynRecipe').remove();
+		$('.dynModal').remove();
 		ingData = {};
 		var x = $(".ingredient").serializeArray();
 		$.each(x, function (i, field) {
