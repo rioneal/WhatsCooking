@@ -16,12 +16,13 @@ function guestSearch() {
 function retreivePreferences() {
 	uid = sessionStorage.getItem('uid');
 	$.ajax({
-		url: 'http://localhost:8080/db/', // The URL to add a user
+		url: 'http://localhost:8080/getPreferences', // The URL to add a user
 		type: 'GET', // The HTTP Method, can be GET POST PUT DELETE etc
 		data: {
-			"UId": uid
+			"Uid": uid
 		}, // Additional parameters here
 		dataType: 'json',
+		// async: false,
 		success:
 			function (data) {
 				console.log(data);
