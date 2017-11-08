@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- These meta tags always have to come first in the head -->
+
+    <title>What's Cooking? Profile Settings</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <!-- Latest compiled css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+    <!-- theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"/>
+    <!-- Latest compiled JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <script src="./js/profile_page.js"></script>
+    <script type="text/javascript" src="http://cryptojs.altervista.org/api/functions_cryptography.js"></script>
+</head>
+
+
+<body>
+<!-- NAV BAR -->
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+
+        <!-- grouped for better mobile display -->
+        <th:block th:replace="fragments :: sidebar('.')"/>
+
+        <!-- Log in Button
+          <form class="navbar-form navbar-right">
+          <div class="form-group ">
+          <span class="glyphicon glyphicon-log-out"><a href="login_page.html"> Login/ Create Account</span></button>
+          </div>
+
+          </form>
+
+        </div>
+        </nav>
+        </div>-->
+
+    </div>
+</nav>
+
+<div class="col-sm-offset-4 col-sm-4">
+    <h2> Account Settings</h2>
+    <form class="form-account-settings" method="post">
+
+
+        <br/>Username: <br/>
+        <br/>email: <br/>
+        <br/>
+
+        <text>Please check the boxes that you would like applied to your searches</text>
+        <br/><br/>
+        <text>Vegan</text>
+        <td><input type="checkbox"/></td>
+
+        <br/><br/>
+        <text>Vegetarian</text>
+        <td><input type="checkbox"/></td>
+
+        <br/><br/>
+        <text>Dairy Free</text>
+        <td><input type="checkbox"/></td>
+
+        <br/><br/>
+        <text>Gluten Free</text>
+        <td><input type="checkbox"/></td>
+
+
+        <br/><br/>
+        <button class="btn btn-lg btn-primary" type="submit">Save Changes</button>
+    </form>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- These meta tags always have to come first -->
+
+    <title>What's Cooking?</title>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <!-- Latest compiled CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+    <!-- Theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"/>
+    <!-- CSS Style Sheet File for Entire Web Page -->
+    <link href="./css/style.css" rel="stylesheet"/>
+    <!-- Latest compiled JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./js/Search_result.js"></script>
+
+    <style>
+        .table-responsive{
+            background: #33b5e0;
+        }
+
+        .orders_navigation_container{
+            background: #e8edf4;
+        }
+        </style>
+</head>
+
+
+<body>
+
+<!-- NAV BAR -->
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+
+        <!-- grouped for better mobile display -->
+        <th:block th:replace="fragments :: sidebar('.')"/>
+
+
+        <!-- Log in Button
+          <form class="navbar-form navbar-right">
+          <div class="form-group ">
+          <li class="btn btn-default"><a href="#" class="btn" data-toggle="btn" role="btn" aria-haspopup="true" aria-expanded="false">
+          <span class="glyphicon glyphicon-log-out"><a href="login_page.html"> Login/ Create Account</span></button>
+
+          </div>
+          </form>
+
+        </div>
+        </nav> -->
+        <br/><br/>
+        <div class="container">
+            <h1 align = "center">Select a Recipe</h1>
+        </div>
+        <!-- Grocery List table -->
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>IMAGE column</th>
+                    <th>Recipe Name</th>
+                    <th>Nutrional facts</th>
+                    <th>Est. Price</th>
+                    <th> Select </th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td> <button class="link">IMAGE</td>
+
+                    <td> recipe 1</td>
+                    <td></td>
+                    <td></td>
+
+                    <td><input type="checkbox"/></td>
+                </tr>
+                <tr>
+                    <td> <button class="link">IMAGE</td>
+                    <td> </td>
+                    <td></td>
+                    <td></td>
+
+                    <td><input type="checkbox"/></td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <br/>
+        <div class="col-sm-offset-10 col-sm-4">
+        <button class="btn btn-md btn-primary" type="submit">Save Selected</button>
+        </div>
+        <br/>
+    </div>
+</nav>
+</body>
+</html>

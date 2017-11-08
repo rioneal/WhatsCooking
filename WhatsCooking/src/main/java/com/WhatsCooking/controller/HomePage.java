@@ -21,4 +21,13 @@ public class HomePage {
     @RequestMapping("/createAccount")
     public String createAccount(){ return "make_account"; }
 
+    @RequestMapping("/profile")
+    public String profile(){ return "profile_page"; }
+
+    @RequestMapping("/searchResult")
+    public String searchResul(){ return "search_result"; }
+
+    @RequestMapping("/recipe")
+    public String recipe(){ return "recipe_page"; }
+
 }
