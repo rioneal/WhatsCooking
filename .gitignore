@@ -11,3 +11,11 @@ buildNumber.properties
 
 # Avoid ignoring Maven wrapper jar file (.jar files are usually ignored)
 !/.mvn/wrapper/maven-wrapper.jar
+WhatsCooking/src/main/resources/templates/search_result.html
+<<<<<<< HEAD
+WhatsCooking/src/main/resources/templates/search_result.html
+WhatsCooking/.idea/workspace.xml
+WhatsCooking/src/main/resources/templates/search_result.html
+WhatsCooking/.idea/workspace.xml
+=======
+>>>>>>> 02939653fe2c5227685809292808eee8b302949b

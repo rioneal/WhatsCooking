@@ -1,4 +1,3 @@
-
 function password_match(){
     var password = document.getElementById("password");
     var confirm_password = document.getElementById("re-enter_password");
