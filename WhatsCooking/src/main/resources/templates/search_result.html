@@ -18,69 +18,87 @@
     <link href="./css/style.css" rel="stylesheet"/>
     <!-- Latest compiled JS -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="./js/recipe_page.js"></script>
-  <style>
-      h5 {
-          word-spacing: -9px;
-      }
+    <script type="text/javascript" src="./js/Search_result.js"></script>
 
-  </style>
+    <style>
+        .table-responsive{
+            background: #33b5e0;
+        }
 
+        .orders_navigation_container{
+            background: #e8edf4;
+        }
+        </style>
 </head>
+
+
 <body>
+
+<!-- NAV BAR -->
+
 <nav class="navbar navbar-default">
     <div class="container-fluid">
 
         <!-- grouped for better mobile display -->
         <th:block th:replace="fragments :: sidebar('.')"/>
 
+
         <!-- Log in Button
           <form class="navbar-form navbar-right">
           <div class="form-group ">
+          <li class="btn btn-default"><a href="#" class="btn" data-toggle="btn" role="btn" aria-haspopup="true" aria-expanded="false">
           <span class="glyphicon glyphicon-log-out"><a href="login_page.html"> Login/ Create Account</span></button>
-          </div>
 
+          </div>
           </form>
 
         </div>
-        </nav>
-        </div>-->
+        </nav> -->
+        <br/><br/>
+        <div class="container">
+            <h1 align = "center">Select a Recipe</h1>
+        </div>
+        <!-- Grocery List table -->
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>IMAGE column</th>
+                    <th>Recipe Name</th>
+                    <th>Nutrional facts</th>
+                    <th>Est. Price</th>
+                    <th> Select </th>
 
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td> <button class="link">IMAGE</button></td>
+
+                    <td> recipe 1</td>
+                    <td></td>
+                    <td></td>
+
+                    <td><input type="checkbox"/></td>
+                </tr>
+                <tr>
+                    <td> <button class="link">IMAGE</button></td>
+                    <td> </td>
+                    <td></td>
+                    <td></td>
+
+                    <td><input type="checkbox"/></td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <br/>
+        <div class="col-sm-offset-10 col-sm-4">
+        <button class="btn btn-md btn-primary" type="submit">Save Selected</button>
+        </div>
+        <br/>
     </div>
 </nav>
-<div class="post-container">
-
-    <div class="col-sm-offset-1 col-sm-0">
-    <h3 class="post-title">RECIPE NAME</h3>
-
-    <div class="post-thumb"><img SRC="pizza.jpg" align="left" HEIGHT="450" WIDTH="420" BORDER="0" /><!--src="URL FOR API IMAGE" />--></div>
-
-    <div class="post-content" >
-        <div class="col-sm-offset-1 col-sm-0">
-            <p align="center">
-
-        <br/><br/>
-         <br/> RECIPE DESCRIPTION RECIPE DESCRIPTION RECIPE DESCRIPTION RECIPE DESCRIPTION RECIPE DESCRIPTION RECIPE DESCRIPTION RECIPE DESCRIPTION RECIPE DESCRIPTION RECIPE DESCRIPTION RECIPE DESCRIPTION
-        <br/><br/>
-          <br/>INGREDIENTS GO HERE  INGREDIENTS GO HERE  INGREDIENTS GO HERE  INGREDIENTS GO HERE  INGREDIENTS GO HERE  INGREDIENTS GO HERE  INGREDIENTS GO HERE
-        <br/><br/>
-            </p>
-            <button class="btn btn-md btn-primary col-sm-offset-1 col-sm-0" > <span class="glyphicon glyphicon-heart"> <h5> Save Recipe</h5></span></button>
-            <button class="btn btn-md btn-primary col-sm-offset-1 col-sm-0"> <span class="glyphicon glyphicon-shopping-cart"><h5>Add Ingredients to Grocery List</h5> </span></button>
-
-
-
-
-</div>
-</div>
-
-    </div>
-</div>
-<!--<div class="main-content">
-    <p>
-        <img src="pizza.jpg" HEIGHT="420" WIDTH="350" BORDER="0">
-        RECIPE DESCRIPTION RECIPE DESCRIPTION RECIPE DESCRIPTION RECIPE DESCRIPTION RECIPE DESCRIPTION
-    </p>-->
-
 </body>
 </html>
