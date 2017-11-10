@@ -6,7 +6,7 @@ $(document).ready(function () {
 
 		$('.dynRecipe').remove();
 		$('.dynModal').remove();
-		// randomRecipe();
+		randomRecipe();
 	});
 });
 
@@ -15,7 +15,7 @@ function randomRecipe() {
 	console.log("random 10")
 	var dataParameters = {
 		"limitLicense": "false",
-		// "number": 5,
+		"number": 1,
 		"tags": ""
 	};
 

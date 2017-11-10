@@ -34,15 +34,15 @@ public class UserController {
     }
 
     @GetMapping(path="/findUser")
-    public @ResponseBody String getByUID(@RequestParam String UName,
+    public @ResponseBody Integer getByUID(@RequestParam String UName,
                            @RequestParam String pw) {
         try {
             User user = userRepository.findByUname(UName);
             String pw2 = user.getPassword();
-            if(pw.equals(pw2)) return "True";
-            else return "False";
+            if(pw.equals(pw2)) return user.getUid();
+            else return -1;
         } catch (Exception ex) {
-            return "User not found";
+            return -2;
         }
     }
 

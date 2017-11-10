@@ -1,8 +1,8 @@
 // Data parameters declared and initialized to default values
 // Will be changed at time of search if user has changed any preferences
 // Will also change if user is guest or registered user
-sessionStorage.setItem('loggedIn', false);
-sessionStorage.setItem('uid', 1);
+// sessionStorage.setItem('loggedIn', false);
+// sessionStorage.setItem('uid', 1);
 
 function search(ingredientString) {
 	userSearch(ingredientString)
