@@ -29,22 +29,15 @@
   <!-- grouped for better mobile display -->
     <th:block th:replace="fragments :: sidebar('.')"/>
 
-<!-- Log in Button 
-  <form class="navbar-form navbar-right">
-  <div class="form-group "> 
-  <span class="glyphicon glyphicon-log-out"><a href="login_page.html"> Login/ Create Account</span></button>
-  </div>
-
-  </form>
-
-</div>
-</nav>
-</div>-->
-
 	   <div class="container">
+
       <div class="col-sm-offset-4 col-sm-4">
       <h2>Please Login</h2>
-      
+
+          <div class="alert" id="warning" hidden="true">
+              Username or Password is Incorrect
+          </div>
+
       <form class="form-signin" data-toggle="validator" method="POST">
       
       <br/>
@@ -59,9 +52,9 @@
       </label>
       </div>
 
-      <button class="btn btn-lg btn-primary" type="submit" onclick="verifyUser()">Login</button>
+          <button id="submit" class="btn btn-lg btn-primary" type="submit" onclick="verifyUser();return false;">Login</button>
       </form>
-      
+
       <br/>
       <br/>
       <div class="col-sm-offset-3 col-sm-10">

@@ -31,53 +31,39 @@
 <nav class="navbar navbar-default">
     <div class="container-fluid">
 
-        <!-- grouped for better mobile display -->
         <th:block th:replace="fragments :: sidebar('.')"/>
-
-        <!-- Log in Button
-          <form class="navbar-form navbar-right">
-          <div class="form-group ">
-          <span class="glyphicon glyphicon-log-out"><a href="login_page.html"> Login/ Create Account</span></button>
-          </div>
-
-          </form>
-
-        </div>
-        </nav>
-        </div>-->
 
     </div>
 </nav>
 
 <div class="col-sm-offset-4 col-sm-4">
+
+    <p id="username"><b>Username: </b></p>
+    <p id="email"><b>Email: </b></p>
+
     <h2> Account Settings</h2>
     <form class="form-account-settings" method="post">
 
-
-        <br/>Username: <br/>
-        <br/>email: <br/>
-        <br/>
-
         <text>Please check the boxes that you would like applied to your searches</text>
         <br/><br/>
-        <text>Vegan</text>
-        <td><input type="checkbox"/></td>
+
+        <td><input type="checkbox" id="vegan"/>Vegan</td>
 
         <br/><br/>
-        <text>Vegetarian</text>
-        <td><input type="checkbox"/></td>
+
+        <td><input type="checkbox" id="veg"/>Vegetarian</td>
 
         <br/><br/>
-        <text>Dairy Free</text>
-        <td><input type="checkbox"/></td>
+
+        <td><input type="checkbox" id="df"/>Dairy Free</td>
 
         <br/><br/>
-        <text>Gluten Free</text>
-        <td><input type="checkbox"/></td>
+
+        <td><input type="checkbox" id="gf"/>Gluten Free</td>
 
 
         <br/><br/>
-        <button class="btn btn-lg btn-primary" type="submit">Save Changes</button>
+        <button class="btn btn-lg btn-primary" type="submit" onclick="savePreferences()">Save Changes</button>
     </form>
 </div>
 

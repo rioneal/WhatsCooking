@@ -9,22 +9,49 @@ function verifyUser() {
 		data: {
 			"pw": Crypto.SHA256(password.value)
 		},
-		dataType: "text",
+		dataType: 'json',
 		async: false,
 		success: function (data) {
-			if (data > 0) {
-				alert("Welcome " + username.value + "!");
-				sessionStorage.setItem('uid', data);
-				sessionStorage.setItem('loggedIn', true);
-			}
-			else if (data == -2) {
-				username.setCustomValidity("User Not Found");
+			if (data.uid > 0 && data.uname == username.value) {
+				alert("Welcome " + data.uname + "!");
+				window.sessionStorage.setItem('uid', data.uid);
+				window.sessionStorage.setItem('uname', data.uname);
+				window.sessionStorage.setItem('email', data.email)
+				window.sessionStorage.setItem('loggedIn', true);
+                setPreferences(data.uid);
+                window.location.href = "/profile";
 			} else {
-				username.setCustomValidity("Password or Username is Incorrect");
+				document.getElementById('warning').hidden = false;
 			}
 		},
 		error: function (err) {
-			console.log(err);
+		    console.log(err);
+		    document.getElementById('warning').hidden = false;
 		},
 	});
+}
+function setPreferences(uid){
+
+	$.ajax({
+		url: 'http://localhost:8080/getPreferences?Uid=' + uid,
+		type: 'GET', // The HTTP Method, can be GET POST PUT DELETE etc
+		data: {
+
+		},
+		dataType: 'json',
+		async: false,
+		success: function (data) {
+			if (data != null) {
+				window.sessionStorage.setItem('preferences', JSON.stringify(data));
+			} else {
+				console.log("no preferences found");
+				window.sessionStorage.setItem('preferences', null);
+			}
+		},
+		error: function (err) {
+		    console.log("Preferences not found");
+		    window.sessionStorage.setItem('preferences', null);
+		},
+	});
+
 }

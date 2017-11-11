@@ -18,8 +18,7 @@ public class UserController {
     JdbcTemplate jdbcTemplate;
 
     @GetMapping(path="/addUser")
-    public @ResponseBody
-    String addNewUser(@RequestParam String UName,
+    public @ResponseBody User addNewUser(@RequestParam String UName,
                       @RequestParam String email,
                       @RequestParam String pw,
                       @RequestParam Integer verified){
@@ -30,19 +29,19 @@ public class UserController {
         u.setPassword(pw);
         u.setVerified(verified);
         userRepository.save(u);
-        return "Saved";
+        return u;
     }
 
     @GetMapping(path="/findUser")
-    public @ResponseBody Integer getByUID(@RequestParam String UName,
+    public @ResponseBody User getByUID(@RequestParam String UName,
                            @RequestParam String pw) {
         try {
             User user = userRepository.findByUname(UName);
             String pw2 = user.getPassword();
-            if(pw.equals(pw2)) return user.getUid();
-            else return -1;
+            if(pw.equals(pw2)) { return user;}
+            else {return new User(-1);}
         } catch (Exception ex) {
-            return -2;
+            return new User(-1);
         }
     }
 
