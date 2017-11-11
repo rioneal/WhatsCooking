@@ -7,3 +7,11 @@
 {
     background-color: #368BC1;
 }
+
+.alert
+{
+    padding: 20px;
+    background-color: #ff9900;
+    color: black;
+    text-position: center;
+}

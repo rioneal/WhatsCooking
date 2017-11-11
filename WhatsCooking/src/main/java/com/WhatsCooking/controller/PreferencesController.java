@@ -26,18 +26,31 @@ public class PreferencesController {
                                                @RequestParam Integer gl,
                                                @RequestParam Integer df,
                                                @RequestParam String other){
-        Preferences preferences = new Preferences();
 
-        if(Uid == 0) return "User does not exist";
+        try{
+            Preferences preferences = preferencesRepository.findByUid(Uid);
 
-        preferences.setUid(Uid);
-        preferences.setVegan(Vegan);
-        preferences.setVegetarian(Veg);
-        preferences.setGlutenfree(gl);
-        preferences.setDairyfree(df);
-        preferences.setOther(other);
+            preferences.setVegan(Vegan);
+            preferences.setVegetarian(Veg);
+            preferences.setGlutenfree(gl);
+            preferences.setDairyfree(df);
+            preferences.setOther(other);
 
-        preferencesRepository.save(preferences);
+            preferencesRepository.save(preferences);
+
+        }catch (Exception ex){
+            Preferences preferences = new Preferences();
+
+            preferences.setUid(Uid);
+            preferences.setVegan(Vegan);
+            preferences.setVegetarian(Veg);
+            preferences.setGlutenfree(gl);
+            preferences.setDairyfree(df);
+            preferences.setOther(other);
+
+            preferencesRepository.save(preferences);
+            return null;
+        }
 
         return "Saved";
     }

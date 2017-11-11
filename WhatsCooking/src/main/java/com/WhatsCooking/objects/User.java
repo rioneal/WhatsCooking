@@ -16,6 +16,14 @@ public class User {
     private String password;
     private Integer verified;
 
+    public User(){
+
+    }
+
+    public User(Integer uID){
+        this.uid = uID;
+    }
+
     public Integer getUid(){
         return uid;
     }

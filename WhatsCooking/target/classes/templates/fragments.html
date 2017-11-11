@@ -6,6 +6,7 @@
 		<th:block th:fragment="sidebar(active)">
 			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 			<link rel="stylesheet" href="./css/fragments.css" type="text/css"/>
+            <script src="./js/fragments.js"></script>
 
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
@@ -52,9 +53,9 @@
 						</a>
 					</li>
 					<!-- button to take user to the user profile page -->
-					<li class="btn btn-default">
-						<a href="profile" aria-haspopup="true" aria-expanded="false">
-							<span class="glyphicon glyphicon-asterisk"/> Your Profile
+					<li class="btn btn-default" onclick="loggedIn()">
+						<a aria-haspopup="true" aria-expanded="false">
+                            <span class="glyphicon glyphicon-asterisk"/> Your Profile
 						</a>
 					</li>
 				</ul>
