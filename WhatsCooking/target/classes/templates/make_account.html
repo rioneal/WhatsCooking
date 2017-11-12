@@ -25,21 +25,14 @@
 </div>
 </nav>
 
-<!-- Log in Button
-  <form class="navbar-form navbar-right">
-  <div class="form-group ">
-  <span class="glyphicon glyphicon-log-out"><a href="login_page.html"> Login/ Create Account</span></button>
-  </div>
-
-  </form>
-
-</div>
-</nav>
-</div>-->
 
       <div class="container">
       <div class="col-sm-offset-4 col-sm-4">
 	   <h1>Create Account</h1>
+
+          <div class="alert" id="warning" hidden="true">
+              Passwords Do Not Match
+          </div>
 
       <form class="form-horizontal"  data-toggle="validator" method="POST">
 
@@ -52,7 +45,7 @@
       <input type="password" class="form-control" id="re-enter_password" placeholder="Re-Enter Password"/>
       <br/>
       <div class="col-sm-offset-3 col-sm-10">
-      <button class="reg-btn btn-md btn-primary" type="submit" onclick="password_match()">Create </button>
+      <button class="reg-btn btn-md btn-primary" type="submit" onclick="password_match();return false">Create </button>
       </div>
       <br/>
       <br/>

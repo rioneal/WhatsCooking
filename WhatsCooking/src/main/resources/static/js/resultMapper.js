@@ -20,6 +20,8 @@ function mapper(results) {
 		recipeObject.usedIngredientCount = recipe.usedIngredientCount;
 		recipeObject.missedIngredientCount = recipe.missedIngredientCount;
 		recipeObject.calories = recipe.calories;
+
+
 		for (var k = 0; k < recipe.analyzedInstructions[0].steps.length; k++) {
 			// console.log(recipe.analyzedInstructions[0]);
 			var instruction = recipe.analyzedInstructions[0].steps[k];
