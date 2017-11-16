@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.sql.Blob;
 
 @Entity
 public class Recipe {
@@ -11,10 +12,10 @@ public class Recipe {
     @GeneratedValue(strategy=GenerationType.AUTO)
 
     private Integer rid;
-    private String rname;
+    private Blob rinfo;
     private Integer uid;
-    private String gl;
-    private String saved;
+    private Integer gl;
+    private Integer saved;
 
     public Integer getRid(){
             return rid;
@@ -23,11 +24,11 @@ public class Recipe {
             this.rid =id;
         }
 
-    public String getRname(){
-            return rname;
+    public Blob getRinfo(){
+            return rinfo;
         }
-    public void setRname(String rname){
-            this.rname = rname;
+    public void setRinfo(Blob rinfo){
+            this.rinfo = rinfo;
         }
 
     public Integer getUid(){
@@ -37,17 +38,17 @@ public class Recipe {
             this.uid = uid;
         }
 
-    public String getGl(){
+    public Integer getGl(){
             return gl;
         }
-    public void setGl(String gl){
+    public void setGl(Integer gl){
             this.gl = gl;
         }
 
-    public String getSaved(){
+    public Integer getSaved(){
             return saved;
         }
-    public void setSaved(String saved){ this.saved = saved; }
+    public void setSaved(Integer saved){ this.saved = saved; }
 
 
 }

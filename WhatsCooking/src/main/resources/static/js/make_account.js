@@ -9,7 +9,8 @@ function password_match(){
         confirm_password.setCustomValidity('');
         var username = document.getElementById("user_name");
         var email = document.getElementById("email");
-        submit(username.value, email.value, Crypto.SHA256(password.value)); //passes values to submit user to DB
+        var pw = SHA256_hash(password.value);
+        submit(username.value, email.value, pw); //passes values to submit user to DB
     }
 }
 
