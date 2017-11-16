@@ -15,12 +15,13 @@ function search(ingredientString) {
 }
 
 function userSearch(ingredientString) {
-	if(sessionStorage.getItem('loggedIn')==true){
-		retreivePreferences(ingredientString);
-	}
-	else{
-		parsePreferences(ingredientString,null)
-	}
+	// if(sessionStorage.getItem('loggedIn')==true){
+	// 	parsePreferences(ingredientString);
+	// }
+	// else{
+	// 	parsePreferences(ingredientString,null)
+	// }
+	parsePreferences(ingredientString)
 	// console.log(parameters);
 	// parameters.includeIngredients = ingredientString;
 	// complexSearch(parameters);
@@ -50,9 +51,36 @@ function retreivePreferences(ingredientString) {
 			alert(err);
 		}
 	});
+
+	var pref=sessionStorage.preferences;
+	for (var key in pref) {
+		if (pref[key] == true) {
+			switch (key) {
+				case "dairyfree":
+					key = "dairy";
+					intolerances.push(key);
+					break;
+				case "glutenfree":
+					key = "gluten";
+					intolerances.push(key);
+					break;
+				case "vegan":
+					diet.push(key);
+					break;
+				case "vegetarian":
+					diet.push(key);
+					break;
+				case "other":
+					intolerances.push(key);
+					break;
+				default:
+					break;
+			}
+		}
+	}
 }
 
-function parsePreferences(ingredientString, data) {
+function parsePreferences(ingredientString) {
 	var dataParameters = {
 		"limitLicense": "false",
 		"addRecipeInformation": "true",
@@ -68,9 +96,11 @@ function parsePreferences(ingredientString, data) {
 
 	var intolerances = [];
 	var diet = [];
-	if (data) {
-		for (var key in data) {
-			if (data[key] == true) {
+	var pref=JSON.parse(sessionStorage.preferences);
+	console.log(pref)
+	if (pref) {
+		for (var key in pref) {
+			if (pref[key] == true) {
 				switch (key) {
 					case "dairyfree":
 						key = "dairy";
@@ -100,6 +130,7 @@ function parsePreferences(ingredientString, data) {
 		dataParameters.diet = dietString;
 	}
 	dataParameters.includeIngredients = ingredientString;
+	console.log(dataParameters);
 	complexSearch(dataParameters);
 }
 
