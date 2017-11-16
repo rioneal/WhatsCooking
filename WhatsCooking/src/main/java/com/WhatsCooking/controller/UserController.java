@@ -23,6 +23,8 @@ public class UserController {
                       @RequestParam String pw,
                       @RequestParam Integer verified){
 
+        if(userRepository.findByUname(UName)!=null){return null;}
+
         User u = new User();
         u.setUname(UName);
         u.setEmail(email);

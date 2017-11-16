@@ -27,13 +27,21 @@ function submit(username, email, password){
 		dataType: 'json',
 		async: false,
 		success: function (data) {
+		if(data == null){
+		    document.getElementById(user_name).setCustomValidity("Username already exists");
+		}
+		else{
+
 			window.sessionStorage.setItem('uid', data.uid);
 			window.sessionStorage.setItem('uname', data.uname);
 			window.sessionStorage.setItem('email', data.email);
 			window.sessionStorage.removeItem('preferences');
 			window.location.href = "/profile";
+		}
+
 		},
 		error: function (err) {
+		    document.getElementById('warning2').hidden = false;
 			console.log("error");
 		},
 	});
