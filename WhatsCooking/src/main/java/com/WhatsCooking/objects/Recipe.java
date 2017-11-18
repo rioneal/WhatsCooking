@@ -1,5 +1,7 @@
 package com.WhatsCooking.objects;
 
+import org.json.simple.JSONObject;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,7 +14,7 @@ public class Recipe {
     @GeneratedValue(strategy=GenerationType.AUTO)
 
     private Integer rid;
-    private Blob rinfo;
+    private String rinfo;
     private Integer uid;
     private Integer gl;
     private Integer saved;
@@ -24,10 +26,10 @@ public class Recipe {
             this.rid =id;
         }
 
-    public Blob getRinfo(){
+    public String getRinfo(){
             return rinfo;
         }
-    public void setRinfo(Blob rinfo){
+    public void setRinfo(String rinfo){
             this.rinfo = rinfo;
         }
 
