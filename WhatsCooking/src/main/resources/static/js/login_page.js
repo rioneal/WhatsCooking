@@ -7,7 +7,7 @@ function verifyUser() {
 		url: 'http://localhost:8080/findUser?UName=' + username.value,
 		type: 'GET', // The HTTP Method, can be GET POST PUT DELETE etc
 		data: {
-			"pw": Crypto.SHA256(password.value)
+			"pw": SHA256_hash(password.value)
 		},
 		dataType: 'json',
 		async: false,

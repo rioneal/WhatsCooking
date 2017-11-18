@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:http="http://www.springframework.org/schema/jdbc">
   <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible"/>
@@ -15,8 +15,7 @@
     <!-- Latest compiled Javascript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script type="text/javascript" src="./js/make_account.js"></script>
-
-      <script type="text/javascript" src="http://cryptojs.altervista.org/api/functions_cryptography.js"></script>
+      <script type="text/javascript" src="http://point-at-infinity.org/jssha256/jssha256.js"></script>
   </head>
     <!--! NAV BAR ! -->
 <nav class="navbar navbar-default">
@@ -32,6 +31,9 @@
 
           <div class="alert" id="warning" hidden="true">
               Passwords Do Not Match
+          </div>
+          <div class="alert" id="warning2" hidden="true">
+              Username Already Exists
           </div>
 
       <form class="form-horizontal"  data-toggle="validator" method="POST">
