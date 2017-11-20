@@ -52,7 +52,7 @@ function retreivePreferences(ingredientString) {
 		}
 	});
 
-	var pref=sessionStorage.preferences;
+	var pref = sessionStorage.preferences;
 	for (var key in pref) {
 		if (pref[key] == true) {
 			switch (key) {
@@ -96,9 +96,8 @@ function parsePreferences(ingredientString) {
 
 	var intolerances = [];
 	var diet = [];
-	var pref=JSON.parse(sessionStorage.preferences);
-	console.log(pref)
-	if (pref) {
+	if (sessionStorage.loggedIn == "true") {
+		var pref = JSON.parse(sessionStorage.preferences);
 		for (var key in pref) {
 			if (pref[key] == true) {
 				switch (key) {
