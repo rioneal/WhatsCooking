@@ -40,9 +40,24 @@ function savePreferences(){
 		dataType: 'json',
 		async: false,
 		success: function (data) {
+
+        var pref = JSON.parse(sessionStorage.preferences);
+        pref.vegan = vegan;
+        pref.vegetarian = veg;
+        pref.dairyfree = df;
+        pref.glutenfree = gf;
+        sessionStorage.setItem('preferences', JSON.stringify(pref));
+
 			console.log(data);
 		},
 		error: function (err) {
+
+        var pref = JSON.parse(sessionStorage.preferences);
+        pref.vegan = vegan;
+        pref.vegetarian = veg;
+        pref.dairyfree = df;
+        pref.glutenfree = gf;
+        sessionStorage.setItem('preferences', JSON.stringify(pref));
 			console.log(err);
 		},
 	});

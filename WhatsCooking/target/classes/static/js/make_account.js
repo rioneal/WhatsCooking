@@ -9,7 +9,8 @@ function password_match(){
         confirm_password.setCustomValidity('');
         var username = document.getElementById("user_name");
         var email = document.getElementById("email");
-        submit(username.value, email.value, Crypto.SHA256(password.value)); //passes values to submit user to DB
+        var pw = SHA256_hash(password.value);
+        submit(username.value, email.value, pw); //passes values to submit user to DB
     }
 }
 
@@ -26,13 +27,21 @@ function submit(username, email, password){
 		dataType: 'json',
 		async: false,
 		success: function (data) {
+		if(data == null){
+		    document.getElementById(user_name).setCustomValidity("Username already exists");
+		}
+		else{
+
 			window.sessionStorage.setItem('uid', data.uid);
 			window.sessionStorage.setItem('uname', data.uname);
 			window.sessionStorage.setItem('email', data.email);
 			window.sessionStorage.removeItem('preferences');
 			window.location.href = "/profile";
+		}
+
 		},
 		error: function (err) {
+		    document.getElementById('warning2').hidden = false;
 			console.log("error");
 		},
 	});

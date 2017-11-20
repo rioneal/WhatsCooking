@@ -7,6 +7,8 @@
 			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 			<link rel="stylesheet" href="./css/fragments.css" type="text/css"/>
             <script src="./js/fragments.js"></script>
+            <script src="./js/saved_recipe.js"></script>
+            <script src="./js/GroceryList.js"></script>
 
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
@@ -35,13 +37,13 @@
 						</a>
 					</li>
 					<!-- button to take user to your saved recipe page -->
-					<li class="btn btn-default">
+					<li class="btn btn-default" onclick="getSaved()">
 						<a href="saved" aria-haspopup="true" aria-expanded="false">
 							<span class="glyphicon glyphicon-apple"/> Your Recipes
 						</a>
 					</li>
 					<!-- button to take user to grocery list page -->
-					<li class="btn btn-default">
+					<li class="btn btn-default" onclick="getGrocery()">
 						<a href="grocery" aria-haspopup="true" aria-expanded="false">
 							<span class="glyphicon glyphicon-tasks"/> Grocery List
 						</a>
