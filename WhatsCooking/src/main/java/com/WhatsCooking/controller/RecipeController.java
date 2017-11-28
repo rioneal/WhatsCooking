@@ -20,6 +20,18 @@ public class RecipeController {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
+    @RequestMapping(path="/getRID")
+    public @ResponseBody List<Integer> getRID(@RequestParam Integer Uid){
+
+        String sql = "SELECT recipeID FROM recipe where uid = ? AND saved = 1";
+
+        List<Integer> rows = jdbcTemplate.queryForList(sql, Integer.class ,Uid );
+
+        if (rows.size()==0) {return null;}
+
+        return rows;
+    }
+
     @RequestMapping(method={RequestMethod.GET, RequestMethod.POST},path="/saveRecipe")
     public @ResponseBody String saveRecipe(@RequestParam Integer Uid,
                                            @RequestParam Integer Rid,
@@ -32,7 +44,7 @@ public class RecipeController {
         recipe = new Recipe();
 
         recipe.setUID(Uid);
-        recipe.setRid(Rid);
+        recipe.setRecipeID(Rid);
         recipe.setRinfo((String)Rinfo);
         recipe.setSaved(1);
         recipe.setGl(0);
@@ -44,8 +56,6 @@ public class RecipeController {
 
     @GetMapping(path="/getSavedList")
     public @ResponseBody List<String> getSavedList(@RequestParam Integer Uid){
-
-        List<String> recipes = new ArrayList<String>();
 
         String sql = "SELECT rinfo FROM recipe where uid = ? AND saved = 1";
 
@@ -67,7 +77,7 @@ public class RecipeController {
         recipe = new Recipe();
 
         recipe.setUID(Uid);
-        recipe.setRid(Rid);
+        recipe.setRecipeID(Rid);
         recipe.setRinfo((String)Rinfo);
         recipe.setSaved(0);
         recipe.setGl(1);
@@ -79,8 +89,6 @@ public class RecipeController {
 
     @GetMapping(path="/getGroceryList")
     public @ResponseBody List<String> getGroceryList(@RequestParam Integer Uid){
-
-        List<String> recipes = new ArrayList<String>();
 
         String sql = "SELECT rinfo FROM recipe where uid = ? AND gl = 1";
 
