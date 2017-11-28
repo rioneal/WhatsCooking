@@ -18,6 +18,7 @@ public class Recipe {
     private Integer uid;
     private Integer gl;
     private Integer saved;
+    private Integer recipeID;
 
     public Integer getRid(){
             return rid;
@@ -51,6 +52,9 @@ public class Recipe {
             return saved;
         }
     public void setSaved(Integer saved){ this.saved = saved; }
+
+    public Integer getRecipeID(){ return recipeID; }
+    public void setRecipeID(Integer recipeID){ this.recipeID = recipeID; }
 
 
 }
