@@ -7,6 +7,7 @@
     <!-- These meta tags always have to come first in the head -->
 
     <title>What's Cooking? Profile Settings</title>
+
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
             crossorigin="anonymous"></script>
@@ -20,7 +21,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
-    <script src="./js/profile_page.js"></script>
     <script type="text/javascript" src="http://cryptojs.altervista.org/api/functions_cryptography.js"></script>
 
 </head>
@@ -33,14 +33,16 @@
     <div class="container-fluid">
 
         <th:block th:replace="fragments :: sidebar('.')"/>
+        <script src="./js/profile_page.js"></script>
+
 
     </div>
 </nav>
 
 <div class="col-sm-offset-4 col-sm-4">
 
-    <p id="username"><b>Username: </b></p>
-    <p id="email"><b>Email: </b></p>
+    <p id="username">Username: </p>
+    <p id="email">Email: </p>
 
     <h2> Account Settings</h2>
     <form class="form-account-settings" method="post">
