@@ -34,6 +34,8 @@ window.onload = function() {
     getSaved();
     getGrocery();
 }
+
+var savedFunctionRecipes=[]
 function getSaved() {
 
     $.ajax({
@@ -51,6 +53,7 @@ function getSaved() {
 
             })
             console.log(savedList);
+            savedFunctionRecipes=savedList
               savedMap(savedList);
 
         },
@@ -59,5 +62,9 @@ function getSaved() {
         },
 
     });
+}
+
+function getSavedRecipes(){
+    return savedFunctionRecipes
 }
 
