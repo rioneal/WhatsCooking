@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
+<style type="text/css">
+    .myLogo { padding: 10px; }
+</style>
 	<body>
 
 		<th:block th:fragment="sidebar(active)">
@@ -19,9 +21,14 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a href="search" class="navbar-brand">
-					What's Cooking?
+				<!--<a href="#" class="navbar-left"><img src="../static/css/cooking_logo.png"/></a>-->
+
+				<a href="#" class="pull-left">
+                    <img src="../css/cooking_logo.png" width="100px" height="70px" />
+
 				</a>
+
+
 			</div>
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

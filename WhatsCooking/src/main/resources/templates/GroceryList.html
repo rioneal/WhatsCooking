@@ -19,6 +19,15 @@
     <!-- Latest compiled JS -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script type="text/javascript" src="./js/GroceryList.js"></script>
+    <script type="text/javascript" src="./js/saved_recipe.js"></script>
+    <script src="./js/recipeSerializer.js"></script>
+    <script src="./js/dynamicForm.js"></script>
+    <script src="./js/resultMapper.js"></script>
+    <script src="./js/recipeToUI.js"></script>
+    <script src="./js/savedRecipeToUI.js"></script>
+    <script src="./js/random.js"></script>
+    <script src="./js/modalCreation.js"></script>
+
   </head>
   
 
@@ -48,33 +57,12 @@
 <div class="container">
   <h1 align = "center">Your Grocery List</h1>
   </div>
+  <div class="col-lg-9 col-lg-offset-1" id="gList"></div>
+  <div id="modals">
+  </div>
     <!-- Grocery List table -->
-    <div class="table-responsive">
-    <table class="table table-striped">
-      <thead>
-      <tr>
-      <th>Ingredient</th>
-      <th>Description</th>
-      <th>Quantity</th>
-      <th>Est. Price</th>
-     
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td>Chicken Breast</td>
-        <td> Delicious Wholesome Chicken</td>
-        <td>2</td>
-        <td>Probably like $600</td>
-     
-        <td><input type="checkbox"/></td>
-      </tr>
-    </tbody>
-    </table>
-    </div>
-    <br/>
-    <button class="btn btn-md btn-primary" type="submit">Remove Selected</button>
-    <br/>
+
+
   </div>
 </nav>
   </body>
