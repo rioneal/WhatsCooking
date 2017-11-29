@@ -1,3 +1,4 @@
+
 function saveRecipe(rID) {
 	for (var i = 0; i < recipeList.length; i++) {
 		if (recipeList[i].id == rID) {
@@ -27,26 +28,36 @@ function saveRecipe(rID) {
 	});
 }
 
-function getSaved(){
 
-        $.ajax({
-            url: 'http://localhost:8080/getSavedList', // The URL to add a user
-    		type: "GET", // The HTTP Method, can be GET POST PUT DELETE etc
-    		data: {
-    		    "Uid":sessionStorage.getItem("uid")
-    		}, // Additional parameters here
-    		dataType: 'json',
-    		async: false,
-    		success: function (data) {
-    		    var savedList = [];
-    		    data.forEach(function(e){
-    		        savedList.push(JSON.parse(e));
-    		    })
-    		    console.log(savedList);
-    		},
-    		error: function (err) {
-    			console.log("No saved recipes");
-    		},
-    	});
+window.onload = function() {
 
+    getSaved();
+    getGrocery();
 }
+function getSaved() {
+
+    $.ajax({
+        url: 'http://localhost:8080/getSavedList', // The URL to add a user
+        type: "GET", // The HTTP Method, can be GET POST PUT DELETE etc
+        data: {
+            "Uid": sessionStorage.getItem("uid")
+        }, // Additional parameters here
+        dataType: 'json',
+        async: false,
+        success: function (data) {
+            var savedList = [];
+            data.forEach(function (e) {
+                savedList.push(JSON.parse(e));
+
+            })
+            console.log(savedList);
+              savedMap(savedList);
+
+        },
+        error: function (err) {
+            console.log("No saved recipes");
+        },
+
+    });
+}
+

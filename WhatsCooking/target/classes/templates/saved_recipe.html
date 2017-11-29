@@ -19,9 +19,17 @@
     <!-- Latest compiled JS -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script type="text/javascript" src="./js/saved_recipe.js"></script>
+    <script src="./js/recipeSerializer.js"></script>
+    <script src="./js/dynamicForm.js"></script>
+    <script src="./js/resultMapper.js"></script>
+    <script src="./js/recipeToUI.js"></script>
+    <script src="./js/savedRecipeToUI.js"></script>
+    <script src="./js/random.js"></script>
+    <script src="./js/modalCreation.js"></script>
+
 
   </head>
-  
+
 
 <body>
 
@@ -29,7 +37,7 @@
 
 <nav class="navbar navbar-default">
 <div class="container-fluid">
-    
+
   <!-- grouped for better mobile display -->
   <th:block th:replace="fragments :: sidebar('.')"/>
 
@@ -37,12 +45,12 @@
 </nav>
 
 
-<!-- Log in Button 
+<!-- Log in Button
   <form class="navbar-form navbar-right">
-  <div class="form-group "> 
+  <div class="form-group ">
   <li class="btn btn-default"><a href="#" class="btn" data-toggle="btn" role="btn" aria-haspopup="true" aria-expanded="false">
   <span class="glyphicon glyphicon-log-out"><a href="login_page.html"> Login/ Create Account</span></button>
-  
+
   </div>
   </form>
 
@@ -53,27 +61,17 @@
   <h1 align = "center">Your Saved Recipes</h1>
   </div>
 
+  <script>
+
+     // getSaved();
+  </script>
+  <div class="col-lg-9 col-lg-offset-1" id="savedList"></div>
+  <div id="modals">
+  </div>
+
     <!-- Saved Recipe table -->
-    <div class="table-responsive">
-    <table class="table table-striped">
-      <thead>
-      <tr>
-      <th>Recipe</th>
-      <th>Description</th>
-      <th>Price</th>
-      <th>More Details</th>
-     
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td>Greek Pizza</td>
-        <td>pizza this, pizza that</td>
-        <td>$12.76</td>
-          <td><button class= "link">Full Recipe</button></td>
-      </tr>
-    </tbody>
-    </table>
-    </div>
+  <div class="results"></div>
+
+
   </body>
 </html>
