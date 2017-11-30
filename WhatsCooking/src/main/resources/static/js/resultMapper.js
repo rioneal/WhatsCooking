@@ -5,9 +5,9 @@
 var recipeList = [];
 
 function mapper(results) {
-	recipeList = results;
 	for (var i = 0; i < results.length; i++) {
-		// console.log(results[i]);
+        var extendedIngredients=[];
+        // console.log(results[i]);
 		// recipeList.push(recipe.id);
 		// var recipeObject = {};
 		// var instructionList = [];
@@ -29,20 +29,25 @@ function mapper(results) {
 		// 	// console.log(instruction.step);
 		// 	recipe.push(instruction.step);
 		// }
-		// for (var j = 0; j < recipe.usedIngredients.length; j++) {
-		// 	var uIngredient = recipe.usedIngredients[j];
-		// 	usedIngredientList.push(uIngredient.originalString)
-		// }
-		// for (var l = 0; l < recipe.missedIngredients.length; l++) {
-		// 	var mIngredient = recipe.missedIngredients[l];
-		// 	missedIngredientList.push(mIngredient.originalString)
-		// }
-		// recipeObject.analyzedInstructions = instructionList;
+		console.log(results[i])
+		for (var j = 0; j < results[i].usedIngredients.length; j++) {
+			var uIngredient = results[i].usedIngredients[j];
+			extendedIngredients.push(uIngredient)
+			// results[i].extendedIngredients.push(uIngredient)
+		}
+		for (var l = 0; l < results[i].missedIngredients.length; l++) {
+			var mIngredient = results[i].missedIngredients[l];
+			extendedIngredients.push(mIngredient)
+		}
+        results[i].extendedIngredients = extendedIngredients;
+        // recipeObject.analyzedInstructions = instructionList;
 		// recipeObject.usedIngredients = usedIngredientList;
 		// recipeObject.missedIngredients = missedIngredientList;
 		// recipeList.push(recipeObject)
 	}
-	console.log(recipeList);
+    recipeList = results;
+    console.log(recipeList);
+    sessionStorage.setItem('recipeList',JSON.stringify(recipeList));
 	map(results);
 }
 

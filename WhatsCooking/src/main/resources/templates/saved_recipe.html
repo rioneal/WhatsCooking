@@ -1,79 +1,91 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <!-- These meta tags always have to come first -->
+	<head>
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<!-- These meta tags always have to come first -->
 
-    <title>What's Cooking?</title>
+		<title>What's Cooking?</title>
 
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-    crossorigin="anonymous"></script>
-    <!-- Latest compiled CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"/>
-    <!-- CSS Style Sheet File for Entire Web Page -->
-    <link href="../../css/style.css" rel="stylesheet"/>
-    <!-- Latest compiled JS -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="./js/saved_recipe.js"></script>
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"
+				integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+				crossorigin="anonymous"></script>
+		<!-- Latest compiled CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+			  integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+			  crossorigin="anonymous"/>
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+			  integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+			  crossorigin="anonymous"/>
+		<!-- CSS Style Sheet File for Entire Web Page -->
+		<link href="../../css/style.css" rel="stylesheet"/>
+		<!-- Latest compiled JS -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+				integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+				crossorigin="anonymous"></script>
+		<script type="text/javascript" src="./js/saved_recipe.js"></script>
+		<script src="./js/recipeSerializer.js"></script>
+		<script src="./js/dynamicForm.js"></script>
+		<script src="./js/resultMapper.js"></script>
+		<script src="./js/recipeToUI.js"></script>
+		<script src="./js/savedRecipeToUI.js"></script>
+		<script src="./js/random.js"></script>
+		<script src="./js/modalCreation.js"></script>
+		<script src="./js/similar.js"></script>
 
-  </head>
-  
-
-<body>
-
-  <!-- NAV BAR -->
-
-<nav class="navbar navbar-default">
-<div class="container-fluid">
-    
-  <!-- grouped for better mobile display -->
-  <th:block th:replace="fragments :: sidebar('.')"/>
-
-</div>
-</nav>
 
 
-<!-- Log in Button 
-  <form class="navbar-form navbar-right">
-  <div class="form-group "> 
-  <li class="btn btn-default"><a href="#" class="btn" data-toggle="btn" role="btn" aria-haspopup="true" aria-expanded="false">
-  <span class="glyphicon glyphicon-log-out"><a href="login_page.html"> Login/ Create Account</span></button>
-  
-  </div>
-  </form>
+	</head>
 
-</div>
-</nav> -->
-<br/><br/>
-<div class="container">
-  <h1 align = "center">Your Saved Recipes</h1>
-  </div>
 
-    <!-- Saved Recipe table -->
-    <div class="table-responsive">
-    <table class="table table-striped">
-      <thead>
-      <tr>
-      <th>Recipe</th>
-      <th>Description</th>
-      <th>Price</th>
-      <th>More Details</th>
-     
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td>Greek Pizza</td>
-        <td>pizza this, pizza that</td>
-        <td>$12.76</td>
-          <td><button class= "link">Full Recipe</button></td>
-      </tr>
-    </tbody>
-    </table>
-    </div>
-  </body>
+	<body>
+
+		<!-- NAV BAR -->
+
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+
+				<!-- grouped for better mobile display -->
+				<th:block th:replace="fragments :: sidebar('.')"/>
+
+			</div>
+		</nav>
+
+
+		<!-- Log in Button
+		  <form class="navbar-form navbar-right">
+		  <div class="form-group ">
+		  <li class="btn btn-default"><a href="#" class="btn" data-toggle="btn" role="btn" aria-haspopup="true" aria-expanded="false">
+		  <span class="glyphicon glyphicon-log-out"><a href="login_page.html"> Login/ Create Account</span></button>
+
+		  </div>
+		  </form>
+
+		</div>
+		</nav> -->
+		<br/><br/>
+		<div class="container">
+			<h1 align="center">Your Saved Recipes</h1>
+		</div>
+
+		<script>
+
+			// getSaved();
+		</script>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-9 col-lg-offset-1" id="savedList"></div>
+				<div id="savedModals"></div>
+			</div>
+		</div>
+		<div class="row" id="carouselSaved">
+
+		</div>
+		<!-- Saved Recipe table -->
+		<div class="results"></div>
+
+
+	</body>
 </html>

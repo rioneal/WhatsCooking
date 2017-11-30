@@ -44,6 +44,8 @@ function getGrocery(){
     		        groceryList.push(JSON.parse(e));
     		    })
     		    console.log(groceryList);
+                //groceryMap(groceryList);
+                groceryMap(groceryList);
     		},
     		error: function (err) {
     			console.log("No recipes in Grocery List");
